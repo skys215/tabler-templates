@@ -1,13 +1,13 @@
 <div class='table-actions'>
 @{!! Form::open(['route' => ['{{ $config->prefixes->getRoutePrefixWith('.') }}{{ $config->modelNames->camelPlural }}.destroy', ${{ $config->primaryName }}], 'method' => 'delete']) !!}
-    <a href="@{{ route('{!! $config->prefixes->getRoutePrefixWith('.') !!}{!! $config->modelNames->camelPlural !!}.show', ${!! $config->primaryName !!}) }}" class='btn btn--s fnt--white btn--green mx1'>
+    <a href="@{{ route('{!! $config->prefixes->getRoutePrefixWith('.') !!}{!! $config->modelNames->camelPlural !!}.show', ${!! $config->primaryName !!}) }}" class='btn btn-primary w-100'>
         @if($config->options->localized)
 @@lang('crud.detail')
 @else
     View
 @endif
     </a>
-    <a href="@{{ route('{!! $config->prefixes->getRoutePrefixWith('.') !!}{!! $config->modelNames->camelPlural !!}.edit', ${!! $config->primaryName !!}) }}" class='btn btn--s fnt--white btn--green mx1'>
+    <a href="@{{ route('{!! $config->prefixes->getRoutePrefixWith('.') !!}{!! $config->modelNames->camelPlural !!}.edit', ${!! $config->primaryName !!}) }}" class='btn btn-success w-100'>
         @if($config->options->localized)
 @@lang('crud.edit')
 @else
@@ -20,7 +20,7 @@ __('crud.delete')
     'Delete'
 @endif, [
         'type' => 'submit',
-        'class' => 'btn btn--s fnt--white btn--red mx1',
+        'class' => 'btn btn-danger w-100',
 @if($config->options->localized)
         'onclick' => "return confirm('Are you sure?')"
 @else

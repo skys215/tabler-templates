@@ -1,9 +1,12 @@
 @if(!empty($errors))
     @if($errors->any())
         @foreach($errors->all() as $error)
-            <aside class="bg--red fnt--white px1">
-                <p><strong>ERROR</strong>: {!! $error !!}</p>
-            </aside>
+          <div class="card mb-2">
+            <div class="card-status-top bg-danger"></div>
+            <div class="card-body">
+              <p>{{ $error }}</p>
+            </div>
+          </div>
         @endforeach
     @endif
 @endif

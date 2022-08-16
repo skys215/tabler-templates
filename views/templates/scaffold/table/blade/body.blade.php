@@ -1,23 +1,23 @@
-<table class="list-table" id="{{ $config->modelNames->dashedPlural }}-table">
+<table class="table table-vcenter card-table table-striped" id="{{ $config->modelNames->dashedPlural }}-table">
     <thead>
     <tr>
         {!! $fieldHeaders !!}
 @if($config->options->localized)
 <th class="txt--center">@@lang('crud.action')</th>
 @else
-    <th class="txt--center">Action</th>
+<th>Action</th>
 @endif
     </tr>
     </thead>
 
     <tbody>
         @@foreach(${{ $config->modelNames->camelPlural }} as ${{ $config->modelNames->camel }})
-            <tr>
+            <tr style="width: 240px;">
                 {!! $fieldBody !!}
-                <td class="txt--center table-actions">
+                <td>
                     @{!! Form::open(['route' => ['{{ $config->prefixes->getRoutePrefixWith('.') }}{{ $config->modelNames->camelPlural }}.destroy', ${{ $config->modelNames->camel }}->{{ $config->primaryName }}], 'method' => 'delete']) !!}
                         <a href="@{{ route('{!! $config->prefixes->getRoutePrefixWith('.') !!}{!! $config->modelNames->camelPlural !!}.show', [${!! $config->modelNames->camel !!}->{!! $config->primaryName !!}]) }}"
-                           class='btn btn--s fnt--white btn--blue mx1'>
+                           class='btn btn-primary'>
                             @if($config->options->localized)
 @@lang('crud.detail')
 @else
@@ -25,7 +25,7 @@
 @endif
                         </a>
                         <a href="@{{ route('{!! $config->prefixes->getRoutePrefixWith('.') !!}{!! $config->modelNames->camelPlural !!}.edit', [${!! $config->modelNames->camel !!}->{!! $config->primaryName !!}]) }}"
-                           class='btn btn--s fnt--white btn--green mx1'>
+                           class='btn btn-success'>
                             @if($config->options->localized)
 @@lang('crud.edit')
 @else
@@ -36,7 +36,7 @@
 __('crud.delete')
 @else
     'Delete'
-@endif, ['type' => 'submit', 'class' => 'btn btn--s fnt--white btn--red mx1', 'onclick' => "return confirm(@if($config->options->localized)
+@endif, ['type' => 'submit', 'class' => 'btn btn-danger', 'onclick' => "return confirm(@if($config->options->localized)
 __('crud.are_you_sure')
 @else
     'Are you sure?'

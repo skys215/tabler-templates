@@ -1,11 +1,15 @@
 <!-- Name Field -->
-<div class="col-sm-12">
+<div class="form-group mb-3 row">
     {!! Form::label('name', 'Name:') !!}
-    <p>{!! $user->name !!}</p>
+    <div class="col">
+        {!! $user->name !!}
+    </div>
 </div>
 
 <!-- Email Field -->
-<div class="col-sm-12">
+<div class="form-group mb-3 row">
     {!! Form::label('email', 'Email:') !!}
-    <p>{!! $user->email !!}</p>
+    <div class="col">
+        {!! $user->email !!}
+    </div>
 </div>

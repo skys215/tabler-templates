@@ -1,44 +1,35 @@
-<div class="table-responsive">
-    <table class="table" id="users-table">
-        <thead>
-        <tr>
-            <th>Name</th>
-            <th>Email</th>
-            <th colspan="3">Action</th>
-        </tr>
-        </thead>
-        <tbody>
+<table class="table table-vcenter card-table table-striped" id="users-table">
+    <thead>
+    <tr>
+        <th>Name</th>
+        <th>Email</th>
+        <th>Action</th>
+    </tr>
+    </thead>
+
+    <tbody>
         @foreach($users as $user)
-            <tr>
-                <td>{!! $user->name !!}</td>
-                <td>{!! $user->email !!}</td>
+            <tr style="width: 240px;">
+                <td>{{ $user->name }}</td>
+                <td>{{ $user->email }}</td>
                 <td>
                     {!! Form::open(['route' => ['users.destroy', $user->id], 'method' => 'delete']) !!}
-                    <div class='btn-group'>
-                        <a href="{!! route('users.show', [$user->id]) !!}" class='btn btn-default btn-xs'>
-                            @if($config->options->localized)
-@@lang('crud.detail')
-@else
-    View
-@endif
+                        <a href="{{ route('users.show', [$user->id]) }}"
+                           class='btn btn-primary'>
+                                View
                         </a>
-                        <a href="{!! route('users.edit', [$user->id]) !!}" class='btn btn-default btn-xs'>
-                            @if($config->options->localized)
-@@lang('crud.edit')
-@else
-    Edit
-@endif
+                        <a href="{{ route('users.edit', [$user->id]) }}"
+                           class='btn btn-success'>
+                                Edit
                         </a>
-                        {!! Form::button(@if($config->options->localized)
-__('crud.delete')
-@else
-    'Delete'
-@endif, ['type' => 'submit', 'class' => 'btn btn-danger btn-xs', 'onclick' => "return confirm('Are you sure?')"]) !!}
-                    </div>
+                        {!! Form::button(    'Delete'
+, ['type' => 'submit', 'class' => 'btn btn-danger', 'onclick' => "return confirm(    'Are you sure?'
+)"]) !!}
                     {!! Form::close() !!}
                 </td>
             </tr>
         @endforeach
-        </tbody>
-    </table>
-</div>
+    </tbody>
+</table>
+
+@include('tabler-templates::common.paginate', ['records' => $users])

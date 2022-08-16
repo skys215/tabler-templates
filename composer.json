@@ -1,7 +1,7 @@
 {
     "name": "skys215/tabler-templates",
     "type": "library",
-    "description": "Tabler templates for Skys215 Laravel Generator",
+    "description": "Tabler templates for InfyOm Laravel Generator",
     "keywords": [
         "skys215",
         "laravel",

@@ -1,8 +1,11 @@
 <!-- {{ $fieldTitle }} Field -->
-
-@if($config->options->localized)
-    @{!! Form::label('{{ $fieldName }}', __('models/{{ $config->modelNames->camelPlural }}.fields.{{ $fieldName }}')) !!}
-@else
-    @{!! Form::label('{{ $fieldName }}', '{{ $fieldTitle }}') !!}
-@endif
-@{!! Form::text('{{ $fieldName }}', null, ['id'=>'{{ $fieldName }}']) !!}
+<div class="form-group mb-3 row">
+  @if($config->options->localized)
+    @{!! Form::label('{{ $fieldName }}', __('models/{{ $config->modelNames->camelPlural }}.fields.{{ $fieldName }}'),['class' => 'form-label col-3 col-form-label']) !!}
+  @else
+    @{!! Form::label('{{ $fieldName }}', '{{ $fieldTitle }}',['class' => 'form-label col-3 col-form-label']) !!}
+  @endif
+  <div class="col">
+    @{!! Form::text('{{ $fieldName }}', null, ['id'=>'{{ $fieldName }}', 'class' => 'form-control']) !!}
+  </div>
+</div>

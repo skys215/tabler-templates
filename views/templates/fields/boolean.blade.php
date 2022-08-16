@@ -1,6 +1,6 @@
 <!-- 'Boolean {{ $fieldTitle }} Field' checked by default -->
 @if($config->options->localized)
-    @{!! Form::label('{{ $fieldName }}', __('models/{{ $config->modelNames->camelPlural }}.fields.{{ $fieldName }}')) !!}
+    @{!! Form::label('{{ $fieldName }}', __('models/{{ $config->modelNames->camelPlural }}.fields.{{ $fieldName }}'), ['class' => 'form-label col-3 col-form-label pt-0']) !!}
 @else
     @{!! Form::label('{{ $fieldName }}', '{{ $fieldTitle }}') !!}
 @endif

@@ -1,6 +1,9 @@
 @foreach (session('flash_notification', collect())->toArray() as $message)
-    <aside class="bg--green fnt--white px1">
+    <div class="card mb-2">
+      <div class="card-status-top bg-secondary"></div>
+      <div class="card-body">
         <p>{!! $message['message'] !!}</p>
-    </aside>
+      </div>
+    </div>
 @endforeach
 {{ session()->forget('flash_notification') }}

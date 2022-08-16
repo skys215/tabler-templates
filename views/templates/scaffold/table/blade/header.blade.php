@@ -1,1 +1,1 @@
-<th class="txt--center">{!! $fieldTitle !!}</th>
+<th>{!! $fieldTitle !!}</th>
