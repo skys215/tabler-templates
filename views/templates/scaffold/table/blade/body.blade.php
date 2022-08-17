@@ -12,9 +12,9 @@
 
     <tbody>
         @@foreach(${{ $config->modelNames->camelPlural }} as ${{ $config->modelNames->camel }})
-            <tr style="width: 240px;">
+            <tr>
                 {!! $fieldBody !!}
-                <td>
+                <td style="width: 240px;">
                     @{!! Form::open(['route' => ['{{ $config->prefixes->getRoutePrefixWith('.') }}{{ $config->modelNames->camelPlural }}.destroy', ${{ $config->modelNames->camel }}->{{ $config->primaryName }}], 'method' => 'delete']) !!}
                         <a href="@{{ route('{!! $config->prefixes->getRoutePrefixWith('.') !!}{!! $config->modelNames->camelPlural !!}.show', [${!! $config->modelNames->camel !!}->{!! $config->primaryName !!}]) }}"
                            class='btn btn-primary'>
