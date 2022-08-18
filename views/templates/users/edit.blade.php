@@ -7,7 +7,7 @@
 @section('content')
   @include('tabler-templates::common.errors')
   <div class="col-12">
-    {!! Form::model($aaa, ['route' => ['users.update', $aaa->id], 'method' => 'patch', 'role' => 'form']) !!}
+    {!! Form::model($user, ['route' => ['users.update', $user->id], 'method' => 'patch', 'role' => 'form']) !!}
       <div class="card">
         <div class="card-body">
           @include('users.fields')
