@@ -24,7 +24,7 @@
                 </a>
             </div>
             <div class="col-auto">
-              @{!! Form::submit(@if($config->options->localized) @@lang('crud.save') @else 'Save' @endif, ['class' => 'btn btn-primary']) !!}
+              @{!! Form::submit(@if($config->options->localized) __('crud.save') @else 'Save' @endif, ['class' => 'btn btn-primary']) !!}
             </div>
           </div>
         </div>
